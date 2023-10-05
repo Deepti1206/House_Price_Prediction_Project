@@ -8,5 +8,5 @@
     <span style="color: black;">Deepti Vijay Khandagale .</span>
 </h3>
 <p align="center">
-  <img src="https://www.hgtv.com/design/decorating/design-101/10-best-kept-secrets-for-selling-your-home">
+  <img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/1400935880311.jpeg">
 </p>
