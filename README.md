@@ -1,11 +1,11 @@
 # House Price Prediction Project
 </div>
 
-<h3 align="center" style="font-size: 35px; color: #800080; font-family: Georgia;">
+<h3 align="right-aligned" style="font-size: 35px; color: #800080; font-family: Georgia;">
     <span style="color: #008080;"> Author:</span> 
     <span style="color: black;">Deepti Vijay Khandagale</span>
 </h3>
-<p align="center">
+<p align="right-aligned">
   <img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/1400935880311.jpeg" width="600" height="400">
 </p>
 
@@ -23,13 +23,13 @@
 
 ## Project Objective
 
-- The primary aim of this project is to **train a Machine Learning Model** capable of predicting the **House Sale Price** based on relevant features.
+- The objective of this project is to predict the **final price** of the house using **machine learning models** based on relevant features.
 
-## Project Overview
+## Background
 
 - This project is entirely based on the **House Prices - Advanced Regression Techniques** Kaggle Competition.
 
-- With a dataset comprising **79 explanatory variables**, covering nearly every aspect of residential homes in Ames, Iowa.
+- With a dataset comprising **81 variables** and **1,460 observations**, covering nearly every aspect of residential homes in Ames, Iowa.
 
 - You can access the dataset by following this link: [House Prices - Advanced Regression Techniques Dataset](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data)
 
@@ -39,19 +39,17 @@
 
 2. As a result, the **real estate industry faces the crucial task of determining the appropriate pricing for houses** before listing them on the market. This is achieved through a comprehensive analysis of various property attributes such as location, size, amenities, condition, market trends, and more.
 
-3. If you want to know more business uses of this project you can go through this project and discover its importance in real-world scenarios.
-
 ## Background
 
 ## Dataset Overview
-The dataset consists of 81 variables and 1,460 observations describing various parameters of residential homes in Ames, Iowa. We aim to fit a linear model to predict the final house price using the training dataset.
+The dataset consists of 81 variables and 1,460 observations describing various parameters of residential homes in Ames, Iowa. datatype-------
 
 ## Methodology
-Our project followed these steps:
-1. **Data Quality and Cleaning:** We conducted exploratory data analysis to check data quality and performed data cleaning.
-2. **Feature Engineering:** We worked on feature engineering to enhance our model's performance.
-3. **Training Model:** We trained various linear regression models and conducted model diagnostics.
-4. **Prediction and Model Comparison:** We compared model performances using metrics like MSE, MAE, and RMSE.
+This project followed these steps:
+1. **Data Quality and Cleaning:** Exploratory data analysis was conducted to check data quality and data cleaning was performed.
+2. **Feature Engineering:** Feature engineering to enhance our model's performance.
+3. **Training Model:** 4 machine learning models were used.
+4. **Prediction and Model Comparison:** Compared model performances using metrics like MSE, MAE, and RMSE.
 
 ## Data Cleaning
 We handled missing values and imputed data accordingly. Columns with more than 40% missing data were dropped. Numerical values were replaced with medians, and categorical values were replaced with modes.
