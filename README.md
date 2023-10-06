@@ -106,9 +106,14 @@ We applied the trained models to the test dataset and evaluated their performanc
 ## Conclusion
 As per the analysis on the test data, it is seen that Root Mean Square error of Lasso regression is lowest and hence we select the **Lasso Regression** the best fit for our prediction of sale price.The topmost variables are **OverallQual, GarageCars, KitchenQual, MSZoningRM and BsmtQual.**
 
-## REFERENCES
+## References
 
 - Kaggle House Price Prediction Competition: [Link](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview)
 - R Documentation: [Link](https://www.rdocumentation.org/)
 - Output Summary: [GitHub Repository](https://github.com/Deepti1206/House_Price_Prediction_Project)
+
+## File Directory
+
+- Data
+- Codes
 
