@@ -101,6 +101,8 @@ In random forest, Mean of squared residuals: 0.01841201 means the prediction err
 ## Prediction and Model Comparison
 We applied the trained models to the test dataset and evaluated their performance using RMSE. The model who has the lowest RMSE is the best from the other in predicting the target variable. In this terms, Lasso regression yielded the lowest RMSE, making it the best choice for predicting house prices.
 
+<img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.53.35%20PM.png" width="600" height="150">
+
 ## Conclusion
 As per the analysis on the test data, it is seen that Root Mean Square error of Lasso regression is lowest and hence we select the **Lasso Regression** the best fit for our prediction of sale price.The topmost variables are **OverallQual, GarageCars, KitchenQual, MSZoningRM and BsmtQual.**
 
