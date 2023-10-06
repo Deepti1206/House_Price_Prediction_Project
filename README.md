@@ -11,6 +11,7 @@
 
 ## Table of Contents
 - [Project Objective](#project-objective)
+- [Business Understanding](#business-understanding)
 - [Background](#background)
 - [Dataset Overview](#dataset-overview)
 - [Methodology](#methodology)
@@ -25,14 +26,6 @@
 
 - The objective of this project is to predict the **final price** of the house using **machine learning models** based on relevant features.
 
-## Background
-
-- This project is entirely based on the **House Prices - Advanced Regression Techniques** Kaggle Competition.
-
-- With a dataset comprising **81 variables** and **1,460 observations**, covering nearly every aspect of residential homes in Ames, Iowa.
-
-- You can access the dataset by following this link: [House Prices - Advanced Regression Techniques Dataset](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data)
-
 ## Business Understanding
 
 1. In the dynamic real estate market, the significance of **accurate house price predictions** is increasing significantly, as they have the potential to empower homeowners, buyers, and real estate professionals by providing valuable insights into property values and facilitating informed decision-making.
@@ -41,8 +34,14 @@
 
 ## Background
 
+- This project is entirely based on the **House Prices - Advanced Regression Techniques** Kaggle Competition. With a dataset comprising **81 variables** and **1,460 observations**, it covers nearly every aspect of residential homes in Ames, Iowa. 
+- You can access the dataset by following this link: [House Prices - Advanced Regression Techniques Dataset](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data)
+
 ## Dataset Overview
-The dataset consists of 81 variables and 1,460 observations describing various parameters of residential homes in Ames, Iowa. datatype-------
+
+- There are two dataset given, test data and train data. Usually, a model is trained on train data and then is tested on test data (hence the names). 
+- The dataset consists of 81 variables and 1,460 observations describing various parameters of residential homes in Ames, Iowa. There are 43 variables that has character or text data type and 38 variiables that has interger or numeric data type.
+- The target variable that I want to predict is the Sales Price.
 
 ## Methodology
 This project followed these steps:
@@ -52,21 +51,59 @@ This project followed these steps:
 4. **Prediction and Model Comparison:** Compared model performances using metrics like MSE, MAE, and RMSE.
 
 ## Data Cleaning
-We handled missing values and imputed data accordingly. Columns with more than 40% missing data were dropped. Numerical values were replaced with medians, and categorical values were replaced with modes.
+Missing values were handles in two ways, first, by **dropping** the variables having more than 40% missing data and, second by **imputing** the missing data with the measures like mean, median or mode. There were 19 variables having missing values, out of which 5 columns that have more than 40% missing values were dropped. The other variables were imputed. The variables that had skewness in their distribution were imputed with median. The categorical variables were imputed with mode. There were some variables whose values were associated with other variables and who had only two categories that were highly skewed. Such variables were dropped.
+
+[`Missing Values`]
 
 ## Feature Engineering
-We categorized and engineered features based on their types, including year of construction, basement, garage, exterior, construction, appliance, miscellaneous, and sale price. We assigned ordinal values to certain categorical variables to reduce dimensionality.
+Feature engineering is done to improve the data quality and model performance. Variables were assessed differently depending on their data type. Following steps were performed for feature engineering:
+- It was observed that the variable **YrSold** has no effect on Sales Price and hence it was dropped.
+- Ordinal values were assinged to certain categorical variables to reduce dimensionality.
 
 ## Training Model
-We employed multiple linear regression, ridge regression, lasso regression, and random forest regression models. Model parameters were tuned using cross-validation.
+
+Before training model, it is important to check the linearity assumption by plotting a histogram of our target variable sale price. The left graph given below is the distribution of the **Sales Price** and we can see that the sale price distribution is rightly skewed which means that the assumption of linearity may not be true here. In order to mitigate this, I took the natural log of the sale price and check the distribution. On the right it be can seen that the log distribution looks normally distributed, hence I shall be training this model using the Log of the target variable. 
+
+[`Sales_Price_Distribution`]
+
+I employed Multiple Linear Regression (with Cross Validation), Ridge Linear Regression (with Cross Validation), Lasso Linear Regression (with Cross Validation), and Random Forest regression models.
+
+1. Multiple Linear Regression (with Cross Validation)
+
+In multiple linear regression, the output of the data is interpreted using the diagnostics plot:
+-Residual v/s fitted graph doesn't show any pattern in the graph, which means that there is no non-linear relationship between the predictor and outcome variables 
+- Normal Q-Q:The residuals are normally distributed. The points forming but there are few outliers at the lower side
+- Scale-Location: This graphs checks the assumption of homoscedasticity and as seen the residuals are scattered randomly which satisfies assumption
+- Residual vs Leverage: This graphs help us to identify the influential outliers that might affect the analysis and here outside Cook's distance (red dotted) we find two outliers.
+
+[`Summary`]
+   
+2. Ridge Linear Regression (with Cross Validation)
+
+In Ridge linear regression, it penalize using Lamda on the co-efficient, if lamda is increasing, the co-efficients tends towards zero. We find the best lamda, which gives us the important variables for our model. So here, the best lamda is 0.25 and it provides the top 30 important variables as Condition2PosN, Condition2PosA, FunctionalSev, FunctionalMaj2, RoofMatWdshngl, ExtFirstBrkComm and so on.
+
+[`Important_Variables_Plot`]
+
+3. Lasso Linear Regression (with Cross Validation)
+
+In lasso regression, the lamda shrinks coefficient completely to zero and removes the unnecessary predictors. So here, the best lamda is very small 0.05 and it provides the top 30 important variables as . The topmost variables are OverallQual, GarageCars, KitchenQual, MSZoningRM and BsmtQual
+
+[`Important_Variable_Plot2`]
+
+4. Random Forest regression
+
+In random forest, Mean of squared residuals: 0.01841201 means the prediction error. 88.45% variance is explained by the variables. In the first plot, the higher the increase in MSE, the important is the variable. we see that GrLivArea, Neighborhood, TotalBsmiSF and so on are most important. In second, node purity is depended on the Gini Index and here the important variables are Overall Qual, Neighborhood, GrLivArea etc.
+
+
 
 ## Prediction and Model Comparison
-We applied the trained models to the test dataset and evaluated their performance using RMSE. Lasso regression yielded the lowest RMSE, making it our choice for predicting house prices.
+We applied the trained models to the test dataset and evaluated their performance using RMSE. The model who has the lowest RMSE is the best from the other in predicting the target variable. In this terms, Lasso regression yielded the lowest RMSE, making it the best choice for predicting house prices.
 
 ## Conclusion
-Based on our analysis, Lasso Regression is the preferred model for predicting house prices. The topmost variables affecting price include OverallQual, GarageCars, KitchenQual, MSZoningRM, and BsmtQual.
+As per the analysis on the test data, it is seen that Root Mean Square error of Lasso regression is lowest and hence we select the **Lasso Regression** the best fit for our prediction of sale price.The topmost variables are **OverallQual, GarageCars, KitchenQual, MSZoningRM and BsmtQual.**
 
-## References
+## REFERENCES
+
 - Kaggle House Price Prediction Competition: [Link](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview)
 - James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). "An Introduction to Statistical Learning: With Applications in R."
 - R Documentation: [Link](https://www.rdocumentation.org/)
