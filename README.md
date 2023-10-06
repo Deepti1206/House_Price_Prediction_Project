@@ -115,6 +115,6 @@ As per the analysis on the test data, it is seen that Root Mean Square error of 
 
 ## File Directory
 
-- Data
-- Codes
+- [`Data`]
+- [`Codes`](https://github.com/Deepti1206/House_Price_Prediction_Project/tree/main/Codes)
 
