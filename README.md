@@ -53,7 +53,7 @@ This project followed these steps:
 ## Data Cleaning
 Missing values were handles in two ways, first, by **dropping** the variables having more than 40% missing data and, second by **imputing** the missing data with the measures like mean, median or mode. There were 19 variables having missing values, out of which 5 columns that have more than 40% missing values were dropped. The other variables were imputed. The variables that had skewness in their distribution were imputed with median. The categorical variables were imputed with mode. There were some variables whose values were associated with other variables and who had only two categories that were highly skewed. Such variables were dropped.
 
-[`Missing Values`](https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.29.37%20PM.png)
+<img src="https://github.com/Deepti1206/House_Price_Prediction_Project/raw/main/Visuals/Screenshot%202023-10-05%20at%2011.29.37%20PM.png" width="600" height="400">
 
 ## Feature Engineering
 Feature engineering is done to improve the data quality and model performance. Variables were assessed differently depending on their data type. Following steps were performed for feature engineering:
@@ -64,7 +64,7 @@ Feature engineering is done to improve the data quality and model performance. V
 
 Before training model, it is important to check the linearity assumption by plotting a histogram of our target variable sale price. The left graph given below is the distribution of the **Sales Price** and we can see that the sale price distribution is rightly skewed which means that the assumption of linearity may not be true here. In order to mitigate this, I took the natural log of the sale price and check the distribution. On the right it be can seen that the log distribution looks normally distributed, hence I shall be training this model using the Log of the target variable. 
 
-[`Sales_Price_Distribution`](https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/000004.png)
+<img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/000004.png" width="600" height="400">
 
 I employed Multiple Linear Regression (with Cross Validation), Ridge Linear Regression (with Cross Validation), Lasso Linear Regression (with Cross Validation), and Random Forest regression models.
 
@@ -76,25 +76,27 @@ In multiple linear regression, the output of the data is interpreted using the d
 - Scale-Location: This graphs checks the assumption of homoscedasticity and as seen the residuals are scattered randomly which satisfies assumption
 - Residual vs Leverage: This graphs help us to identify the influential outliers that might affect the analysis and here outside Cook's distance (red dotted) we find two outliers.
 
-[`Summary`](https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2010.58.55%20PM.png)
+[`MLR_Output`](https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/MLR_Output_Summary.pdf)
+
+<img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2010.58.55%20PM.png" width="900" height="80">
    
 2. Ridge Linear Regression (with Cross Validation)
 
 In Ridge linear regression, it penalize using Lamda on the co-efficient, if lamda is increasing, the co-efficients tends towards zero. We find the best lamda, which gives us the important variables for our model. So here, the best lamda is 0.25 and it provides the top 30 important variables as Condition2PosN, Condition2PosA, FunctionalSev, FunctionalMaj2, RoofMatWdshngl, ExtFirstBrkComm and so on.
 
-[`Important_Variables_Plot`](https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.01.26%20PM.png)
+<img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.01.26%20PM.png" width="600" height="400">
 
 3. Lasso Linear Regression (with Cross Validation)
 
 In lasso regression, the lamda shrinks coefficient completely to zero and removes the unnecessary predictors. So here, the best lamda is very small 0.05 and it provides the top 30 important variables as . The topmost variables are OverallQual, GarageCars, KitchenQual, MSZoningRM and BsmtQual
 
-[`Important_Variable_Plot2`](https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.16.13%20PM.png)
+<img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.16.13%20PM.png" width="600" height="400">
 
 4. Random Forest regression
 
 In random forest, Mean of squared residuals: 0.01841201 means the prediction error. 88.45% variance is explained by the variables. In the first plot, the higher the increase in MSE, the important is the variable. we see that GrLivArea, Neighborhood, TotalBsmiSF and so on are most important. In second, node purity is depended on the Gini Index and here the important variables are Overall Qual, Neighborhood, GrLivArea etc.
 
-[`Random_Forest_Important_features`](https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.18.49%20PM.png)
+<img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.18.49%20PM.png" width="600" height="300">
 
 ## Prediction and Model Comparison
 We applied the trained models to the test dataset and evaluated their performance using RMSE. The model who has the lowest RMSE is the best from the other in predicting the target variable. In this terms, Lasso regression yielded the lowest RMSE, making it the best choice for predicting house prices.
