@@ -109,7 +109,6 @@ As per the analysis on the test data, it is seen that Root Mean Square error of 
 ## REFERENCES
 
 - Kaggle House Price Prediction Competition: [Link](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview)
-- James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). "An Introduction to Statistical Learning: With Applications in R."
 - R Documentation: [Link](https://www.rdocumentation.org/)
 - Output Summary: [GitHub Repository](https://github.com/Deepti1206/House_Price_Prediction_Project)
 
