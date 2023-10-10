@@ -69,7 +69,7 @@ Before training model, it is important to check the linearity assumption by plot
 
 I employed Multiple Linear Regression (with Cross Validation), Ridge Linear Regression (with Cross Validation), Lasso Linear Regression (with Cross Validation), and Random Forest regression models.
 
-1. Multiple Linear Regression (with Cross Validation)
+**1. Multiple Linear Regression (with Cross Validation)**
 
 In multiple linear regression, the output of the data is interpreted using the diagnostics plot:
 -Residual v/s fitted graph doesn't show any pattern in the graph, which means that there is no non-linear relationship between the predictor and outcome variables 
@@ -81,19 +81,19 @@ In multiple linear regression, the output of the data is interpreted using the d
 
 <img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2010.58.55%20PM.png" width="900" height="80">
    
-2. Ridge Linear Regression (with Cross Validation)
+**2. Ridge Linear Regression (with Cross Validation)**
 
 In Ridge linear regression, it penalize using Lamda on the co-efficient, if lamda is increasing, the co-efficients tends towards zero. We find the best lamda, which gives us the important variables for our model. So here, the best lamda is 0.25 and it provides the top 30 important variables as Condition2PosN, Condition2PosA, FunctionalSev, FunctionalMaj2, RoofMatWdshngl, ExtFirstBrkComm and so on.
 
 <img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.01.26%20PM.png" width="600" height="400">
 
-3. Lasso Linear Regression (with Cross Validation)
+**3. Lasso Linear Regression (with Cross Validation)**
 
 In lasso regression, the lamda shrinks coefficient completely to zero and removes the unnecessary predictors. So here, the best lamda is very small 0.05 and it provides the top 30 important variables as . The topmost variables are OverallQual, GarageCars, KitchenQual, MSZoningRM and BsmtQual
 
 <img src="https://github.com/Deepti1206/House_Price_Prediction_Project/blob/main/Visuals/Screenshot%202023-10-05%20at%2011.16.13%20PM.png" width="600" height="400">
 
-4. Random Forest regression
+**4. Random Forest regression**
 
 In random forest, Mean of squared residuals: 0.01841201 means the prediction error. 88.45% variance is explained by the variables. In the first plot, the higher the increase in MSE, the important is the variable. we see that GrLivArea, Neighborhood, TotalBsmiSF and so on are most important. In second, node purity is depended on the Gini Index and here the important variables are Overall Qual, Neighborhood, GrLivArea etc.
 
